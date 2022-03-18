@@ -7,6 +7,56 @@
   <title>Органайзер</title>
 </head>
 <body>
-
+<div class="container">
+  <div class="controlPanel">
+    <div class="profile">
+      <img src="./img/avatar.jpg" alt="avatar" class="avatar">
+    </div>
+    <ul class="controlPanelList">
+      <li class="controlPanelitem controlPickOut">Заметки</li>
+      <li class="controlPanelitem">Напоминания</li>
+      <li class="controlPanelitem">Календарь</li>
+      <li class="controlPanelitem">Картинки</li>
+      <li class="controlPanelitem">Аудио</li>
+      <li class="controlPanelitem">Видео</li>
+      <li class="controlPanelitem">Настройки</li>
+    </ul>
+  </div>
+  
+  <div class="mainPanel">
+    <div class="fixNote">
+      <span class="fixText"></span>
+      <button class="fixButton"></button>
+    </div>
+    <div class="searchPanel">
+      <input type="search" class="search" placeholder="Поиск заметки">
+      <button class="searchButton">	
+        &#128269;</button>
+    </div>  
+    <div class="itemBox">
+      <div class="fixNot">
+        <h3 class="changeTitle">Закрепить можно только одну заметку!</h3>
+      </div>
+      <div class="choiceDoFile">
+        <h3 class="changeTitle">Управление заметкой</h3>
+        <button class="choiceChange choiceButton">Изменить</button>
+        <button class="choiceDo choiceButton">Закрепить</button> 
+        <button class="choiceDelete choiceButton">Удалить</button> 
+      </div>
+      <div class="changeFile">
+        <h3 class="changeTitle">Изменение заметки</h3>
+        <input type="text" class="changeInput" value="">
+        <button class="doChangeButton changeButton"></button>
+        <button class="closeChangeButton changeButton"></button>
+      </div>
+    </div>
+    <div class="enter">
+      <input type="file" class="file" id="file" accept="image/*, video/*, audio/*, text/*">
+      <label for="file" class="labelFile">&#128188;</label>
+      <input type="text" class="textNote" placeholder="Введите заметку" autofocus>
+      <button class="textButton">&#9989;</button> 
+    </div>
+  </div>
+</div>
 </body>
 </html>

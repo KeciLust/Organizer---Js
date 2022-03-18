@@ -1,0 +1,283 @@
+.container {
+    display: flex;
+}
+.controlPanel {
+    width: 300px;
+    margin: 10px;
+    padding: 20px;
+    display: block;
+    border: 3px rgb(153, 235, 120) solid;
+    border-radius: 10px;
+    position: fixed;
+    height: 87%;
+}
+.profile {
+    display: flex;
+    justify-content: center;
+}
+
+.avatar {
+    width: 150px;
+    margin-right: auto;
+    margin-left: auto;
+}
+.controlPanelList::before {
+    content: "";
+    border:2px rgb(52, 124, 24) solid;
+    display: block;
+    width: 200px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 30px;
+}
+.controlPanelList {
+    list-style-type:none;
+    margin-right: auto;
+    margin-left: auto;
+    padding: 0;
+    text-align: center;
+    margin-bottom: 0;
+}
+.controlPanelitem {
+    margin-top: 18px;
+    font-size: 25px;
+    font-weight: 900;
+    font-style: oblique;
+    margin-bottom: 0;
+}
+.controlPanelitem:hover {
+    color: rgb(13, 134, 68);
+    cursor: pointer;
+}
+.mainPanel {
+    width: calc(100% - 425px);
+    min-height: 87vh;
+    max-height: 87vh;
+    margin: 10px;
+    margin-left: 370px;
+    padding: 20px;
+    display: flex;
+    border: 3px rgb(136, 170, 241) solid;
+    border-radius: 10px;
+    flex-direction: column;
+    justify-content:space-between ;
+}
+.searchPanel {
+    width: 100%;
+}
+.search {
+    width: 90%;
+    border: 1px rgb(136, 131, 204) solid;
+    font-size: 25px;
+    border-radius: 5px;
+}
+.search:hover {
+    border: 3px rgb(136, 131, 204) solid;
+}
+.searchButton {
+    width: 50px;
+    height: 50px;
+    font-size: 25px;
+    border: 0;
+    background-color: white;
+    margin-left: 30px;
+
+}
+.searchButton:hover {
+    border: 3px rgb(136, 131, 204) solid;
+    border-radius: 50%;
+    cursor: pointer;
+}
+.textNote {
+    width: 80%;
+    border: 1px rgb(136, 131, 204) solid;
+    font-size: 30px;
+    border-radius: 5px;
+}
+.textNote:hover {
+    border: 3px rgb(136, 131, 204) solid;
+}
+.file {
+    position: absolute;
+    z-index: -1;
+    opacity: 0;
+}
+.labelFile {
+    width: 50px;
+    height: 50px;
+    font-size: 30px;
+    padding: 5px;
+    margin-right: 25px;
+}
+.labelFile:hover {
+    cursor: pointer;
+    border: 3px rgb(136, 131, 204) solid;
+    border-radius: 50%;
+}
+.textButton {
+    border: 0;
+    width: 50px;
+    height: 50px;
+    font-size: 25px;
+    background-color: white;
+    padding: 0;
+    margin-left: 25px;  
+}
+.textButton:hover {
+    border: 3px rgb(136, 131, 204) solid;
+    border-radius: 50%;
+    cursor: pointer;
+}
+.itemBox {
+    position: relative;
+    display: flex;
+    flex-direction: column-reverse;
+    overflow: auto;
+    height: 80%;
+    margin-bottom: 50px;
+    margin-top: 50px;
+    padding: 15px;
+    width: 100%;
+}
+.elemTextNote {
+    margin-top: 30px;
+    display: inline-block;
+    width: 90%;
+    overflow-wrap: break-word;
+}
+.spanText {
+    max-width: 80%;
+    display: inline-block;
+    padding: 10px;
+    font-size: 30px;
+    border: 2px rgb(153, 235, 120) solid;
+    border-radius: 10px;
+    margin-right: 20px;
+    cursor: pointer;
+    margin-left: 30px;
+}
+.changeFile {
+    display: none;
+    position: fixed;
+    top: 40%;
+    left: calc(50%);
+    width: 400px;
+    border: 2px red solid;
+    border-radius: 10px;
+    background-color: rgb(229, 234, 245);
+}
+.changeTitle {
+    font-size: 25px;
+    text-align: center;
+    margin-bottom: 50px;
+}
+.changeInput {
+    width: 285px;
+    font-size: 20px;
+    border-radius: 10px;
+    border: 1px rgb(136, 131, 204) solid;
+    margin-left: 20px; 
+    margin-bottom: 20px;
+    padding: 5px;
+    box-sizing: border-box;
+}
+.changeInput:hover {
+    border: 2px rgb(136, 131, 204) solid;
+}
+.doChangeButton {
+    width: 25px;
+    height: 25px;
+    background-image: url(../img/ok.png);
+    background-repeat: no-repeat;
+    background-size: 20px;
+    background-position:bottom;
+    border: 0;
+    background-color:  rgb(229, 234, 245);
+    cursor: pointer;
+}
+.closeChangeButton {
+    width: 25px;
+    height: 25px;
+    background-image: url(../img/X.png);
+    background-repeat: no-repeat;
+    background-size: 20px;
+    background-position:bottom;
+    border: 0;
+    background-color:  rgb(229, 234, 245);
+    cursor: pointer;
+}
+.choiceDoFile {
+    display: none;
+    position: fixed;
+    top: 40%;
+    left: calc(50%);
+    width: 500px;
+    border: 2px red solid;
+    border-radius: 10px;
+    background-color: rgb(229, 234, 245);
+}
+.choiceChange {
+    margin-left: 30px;
+    width: 120px;
+    margin-bottom: 20px;
+    border-radius: 10px;
+    font-size: 20px;
+    text-align: center;
+}
+.choiceDo {
+    margin-left: 35px;
+    width: 120px;
+    margin-bottom: 20px;
+    border-radius: 10px;
+    font-size: 20px;
+    text-align: center;
+}
+.choiceDelete {
+    margin-left: 35px;
+    width: 120px;
+    margin-bottom: 20px;
+    border-radius: 10px;
+    font-size: 20px;
+    text-align: center;
+}
+.choiceButton:hover {
+    background-color: rgb(216, 240, 203);
+}
+.fixNote {
+    display: none;
+    width: 100%;
+    margin-bottom: 50px;
+}
+.fixText {
+    background-color: rgb(188, 240, 223);
+    border: 3px rgb(248, 153, 153) solid;
+    border-radius: 10px;
+    width: 90%;
+    font-size: 30px;
+    padding: 20px;
+}
+.fixButton {
+    width: 25px;
+    height: 25px;
+    background-image: url(../img/X.png);
+    background-repeat: no-repeat;
+    background-size: 20px;
+    background-position:bottom;
+    border: 0;
+    background-color: white;
+    margin-left: 40px;
+    cursor: pointer;
+}
+.fixNot {
+    display: none;
+    position: fixed;
+    top: 40%;
+    left: calc(50%);
+    width: 500px;
+    border: 2px red solid;
+    border-radius: 10px;
+    background-color: rgb(229, 234, 245);
+}
+.controlPickOut {
+    color:blueviolet;
+}
