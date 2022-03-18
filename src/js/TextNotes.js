@@ -31,10 +31,10 @@ export default class Notes {
         if (data[i].img) {
           const res = await this.api.loadFile(data[i].id);
           const blob = await res.blob();
-        
+
           const img = document.createElement('img');
           img.src = URL.createObjectURL(blob);
-         
+
           elem.insertAdjacentElement('afterbegin', img);
         }
 
