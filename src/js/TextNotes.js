@@ -170,11 +170,13 @@ export default class Notes {
         const response = await this.api.add({
           text: `${this.file.files[0].name}`,
           time: `${time()}`,
-          img: `${URL.createObjectURL(blob)}`,
         });
         const data = await response.json();
         elem.setAttribute('nameId', data.id);
-      }
+        const res = await this.api.addFile(blob, data.id);
+        const d = await res.blob();
+        console.log(d);
+       }
       if (/audio/.test(this.file.files[0].type)) {
         const elem = document.createElement('div');
         elem.innerHTML = `<span class="spanText">${this.file.files[0].name}</span><span class="spanTime">${time()}</span>`;
