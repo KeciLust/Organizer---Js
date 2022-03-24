@@ -12,7 +12,7 @@
     <div class="profile">
       <img src="./img/avatar.jpg" alt="avatar" class="avatar">
     </div>
-    <ul class="controlPanelList">
+    <ul class="controlPanelList" color="black">
       <li class="controlPanelitem controlPickOut mainItem">Заметки</li>
       <li class="controlPanelitem">Напоминания</li>
       <li class="controlPanelitem">Календарь</li>
@@ -23,8 +23,18 @@
     </ul>
   </div>
   <div class="settings">
-    <input type="file" class="inputSettings" placeholder="Установите аватарку" accept="image/*">
-
+   <div class="avatarSettings">
+    <label for = "inputSettings" class="settingsText">Выберите аватар</label>
+    <input type="file" class="inputSettings" id ='inputSettings' placeholder="Установите аватарку" accept="image/*"></div>
+   <div class="theme">
+    <span class="settingsText">Выберите тему</span>
+    <div class="radioSettings">
+      <input type="radio" class="settingsRadio" id="white" name="settingsRadio" value="Светлая" checked>
+      <label class ='labelRadio' for="white">Светлая</label>
+      <input type="radio" class="settingsRadio" id="black" name="settingsRadio" value="Тёмная">
+      <label class ='labelRadio' for="black">Тёмная</label>
+    </div>
+   </div>
   </div>
   <div class="mainPanel panel">
     <div class="fixNote">

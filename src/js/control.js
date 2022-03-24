@@ -19,7 +19,7 @@ export default class Control {
         if (e.target.classList.contains('controlPickOut')) {
           return;
         }
-        e.target.style.color = 'black';
+        e.target.style.color = this.list.getAttribute('color');
         e.target.style.cursor = 'auto';
       }
     });
@@ -32,7 +32,7 @@ export default class Control {
       }
       const item = document.querySelector('.controlPickOut');
       item.classList.remove('controlPickOut');
-      item.style.color = 'black';
+      item.style.color = this.list.getAttribute('color');
       e.target.classList.add('controlPickOut');
       e.target.style.color = 'blueviolet';
       e.target.style.cursor = 'auto';
