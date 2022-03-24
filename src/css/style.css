@@ -45,10 +45,6 @@
     font-style: oblique;
     margin-bottom: 0;
 }
-.controlPanelitem:hover {
-    color: rgb(13, 134, 68);
-    cursor: pointer;
-}
 .mainPanel {
     width: calc(100% - 425px);
     min-height: 87vh;
@@ -57,6 +53,19 @@
     margin-left: 370px;
     padding: 20px;
     display: flex;
+    border: 3px rgb(136, 170, 241) solid;
+    border-radius: 10px;
+    flex-direction: column;
+    justify-content:space-between ;
+}
+.settings {
+    width: calc(100% - 425px);
+    min-height: 87vh;
+    max-height: 87vh;
+    margin: 10px;
+    margin-left: 370px;
+    padding: 20px;
+    display: none;
     border: 3px rgb(136, 170, 241) solid;
     border-radius: 10px;
     flex-direction: column;
@@ -280,4 +289,5 @@
 }
 .controlPickOut {
     color:blueviolet;
+  
 }

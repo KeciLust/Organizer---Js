@@ -31,10 +31,9 @@ export default class Notes {
         if (data[i].img) {
           const res = await this.api.loadFile(data[i].id);
           const blob = await res.blob();
-
           const img = document.createElement('img');
-          img.src = URL.createObjectURL(blob);
-
+          console.log(blob);
+          img.src = `http://localhost:7070/${blob}`;
           elem.insertAdjacentElement('afterbegin', img);
         }
 
@@ -166,16 +165,16 @@ export default class Notes {
         elem.insertAdjacentElement('afterbegin', img);
         this.itemBox.insertAdjacentElement('afterbegin', elem);
         const blob = new Blob([this.file.files[0]], { type: `${this.file.files[0].type}` });
-        console.log(blob);
+        const form = new FormData();
+        form.append('img', blob);
         const response = await this.api.add({
           text: `${this.file.files[0].name}`,
           time: `${time()}`,
         });
         const data = await response.json();
         elem.setAttribute('nameId', data.id);
-        const res = await this.api.addFile(blob, data.id);
-        const d = await res.blob();
-        console.log(d);
+        await this.api.addFile(form, data.id);
+        URL.revokeObjectURL(img.src);
       }
       if (/audio/.test(this.file.files[0].type)) {
         const elem = document.createElement('div');

@@ -16,9 +16,9 @@ export default class Api {
     });
   }
 
-  addFile(file, id) {
+  addFile(blob, id) {
     return fetch(`${this.url}/${id}`, {
-      body: file,
+      body: blob,
       method: 'POST',
       headers: { 'Content-Type': 'multipart/*' },
     });
