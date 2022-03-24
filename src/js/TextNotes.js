@@ -30,9 +30,8 @@ export default class Notes {
         elem.setAttribute('nameId', data[i].id);
         if (data[i].img) {
           const res = await this.api.loadFile(data[i].id);
-          const blob = await res.blob();
+          const blob = await res.json();
           const img = document.createElement('img');
-          console.log(blob);
           img.src = `http://localhost:7070/${blob}`;
           elem.insertAdjacentElement('afterbegin', img);
         }
@@ -164,9 +163,10 @@ export default class Notes {
         img.width = '100';
         elem.insertAdjacentElement('afterbegin', img);
         this.itemBox.insertAdjacentElement('afterbegin', elem);
-        const blob = new Blob([this.file.files[0]], { type: `${this.file.files[0].type}` });
+        // const blob = new Blob([this.file.files[0]], { type: `${this.file.files[0].type}` });
         const form = new FormData();
-        form.append('img', blob);
+        console.log(this.file.files);
+        form.append('img', this.file.files[0]);
         const response = await this.api.add({
           text: `${this.file.files[0].name}`,
           time: `${time()}`,
