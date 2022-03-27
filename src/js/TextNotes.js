@@ -9,6 +9,7 @@ export default class Notes {
     this.text = document.querySelector('.textNote');
     this.api = new Api('http://localhost:7070/file');
     this.file = document.querySelector('.file');
+    this.files = document.querySelector('.files');
     this.text = document.querySelector('.textNote');
     this.textButton = document.querySelector('.textButton');
     this.itemBox = document.querySelector('.itemBox');
@@ -29,13 +30,11 @@ export default class Notes {
         elem.classList.add('elemTextNote');
         elem.setAttribute('nameId', data[i].id);
         if (data[i].img) {
-          const res = await this.api.loadFile(data[i].id);
-          const blob = await res.json();
+          const link = await this.api.loadFile(data[i].id);
           const img = document.createElement('img');
-          img.src = `http://localhost:7070/${blob}`;
+          img.src = `http://localhost:7070/${link}`;
           elem.insertAdjacentElement('afterbegin', img);
         }
-
         this.itemBox.insertAdjacentElement('afterbegin', elem);
       }
     }
@@ -152,7 +151,8 @@ export default class Notes {
         this.change(this.element);
       }
     });
-    this.file.addEventListener('change', async () => {
+    this.files.addEventListener('change', async (e) => {
+      e.preventDefault();
       if (/image/.test(this.file.files[0].type)) {
         const elem = document.createElement('div');
         elem.innerHTML = `<span class="spanText">${this.file.files[0].name}</span><span class="spanTime">${time()}</span>`;
@@ -163,17 +163,17 @@ export default class Notes {
         img.width = '100';
         elem.insertAdjacentElement('afterbegin', img);
         this.itemBox.insertAdjacentElement('afterbegin', elem);
-        // const blob = new Blob([this.file.files[0]], { type: `${this.file.files[0].type}` });
-        const form = new FormData();
-        console.log(this.file.files);
-        form.append('img', this.file.files[0]);
+        //  const blob = new Blob([this.file.files[0]], { type: `${this.file.files[0].type}` });
+        const form = new FormData(e.currentTarget);
         const response = await this.api.add({
           text: `${this.file.files[0].name}`,
           time: `${time()}`,
         });
         const data = await response.json();
         elem.setAttribute('nameId', data.id);
-        await this.api.addFile(form, data.id);
+        // form.append('id', data.id);
+        // form.append('file', this.file.files[0]);
+        await this.api.addFile(form);
         URL.revokeObjectURL(img.src);
       }
       if (/audio/.test(this.file.files[0].type)) {
