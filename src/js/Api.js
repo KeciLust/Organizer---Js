@@ -20,7 +20,7 @@ export default class Api {
     return fetch(`${this.url}/load`, {
       body: form,
       method: 'POST',
-      headers: { 'Content-Type': 'multipart/*' },
+      // headers: { 'Content-Type': 'multipart/*' },
     });
   }
 
