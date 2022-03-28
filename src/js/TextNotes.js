@@ -164,7 +164,7 @@ export default class Notes {
         elem.insertAdjacentElement('afterbegin', img);
         this.itemBox.insertAdjacentElement('afterbegin', elem);
         //  const blob = new Blob([this.file.files[0]], { type: `${this.file.files[0].type}` });
-        const form = new FormData(e.currentTarget);
+        const form = new FormData();
         const response = await this.api.add({
           text: `${this.file.files[0].name}`,
           time: `${time()}`,
@@ -172,7 +172,7 @@ export default class Notes {
         const data = await response.json();
         elem.setAttribute('nameId', data.id);
         // form.append('id', data.id);
-        // form.append('file', this.file.files[0]);
+        form.append('file', this.file.files[0]);
         await this.api.addFile(form);
         URL.revokeObjectURL(img.src);
       }
