@@ -10,3 +10,4 @@ notes.textListner();
 control.pickOut();
 control.change();
 settings.theme();
+settings.avatar();

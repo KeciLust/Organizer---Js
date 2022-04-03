@@ -25,15 +25,37 @@ export default class Notes {
     const data = await response.json();
     if (data.length > 0) {
       for (let i = 0; i < data.length; i += 1) {
+        if(data[i].type === 'avatar'){
+          document.querySelector('.avatar').src = `http://localhost:7070/${data[i].link}`;
+          return;
+        }
         const elem = document.createElement('div');
         elem.innerHTML = `<span class="spanText">${data[i].text}</span><span class="spanTime">${data[i].time}</span>`;
         elem.classList.add('elemTextNote');
         elem.setAttribute('nameId', data[i].id);
-        if (data[i].img) {
-          const link = await this.api.loadFile(data[i].id);
-          const img = document.createElement('img');
-          img.src = `http://localhost:7070/${link}`;
-          elem.insertAdjacentElement('afterbegin', img);
+        if (data[i].link) {
+          if (data[i].type === 'img') {
+            const img = document.createElement('img');
+            img.src = `http://localhost:7070/${data[i].link}`;
+            img.sizes = '100px';
+            img.width = '100';
+            elem.insertAdjacentElement('afterbegin', img);
+            elem.classList.add('img');
+          }
+          if (data[i].type === 'audio') {
+            const audio = document.createElement('audio');
+            audio.src = `http://localhost:7070/${data[i].link}`;
+            audio.controls = true;
+            elem.insertAdjacentElement('afterbegin', audio);
+            elem.classList.add('audio');
+          }
+          if (data[i].type === 'video') {
+            const video = document.createElement('video');
+            video.src = `http://localhost:7070/${data[i].link}`;
+            video.controls = true;
+            elem.insertAdjacentElement('afterbegin', video);
+            elem.classList.add('video');
+          }
         }
         this.itemBox.insertAdjacentElement('afterbegin', elem);
       }
@@ -158,43 +180,64 @@ export default class Notes {
         elem.innerHTML = `<span class="spanText">${this.file.files[0].name}</span><span class="spanTime">${time()}</span>`;
         elem.classList.add('elemTextNote');
         const img = document.createElement('img');
-        img.src = URL.createObjectURL(this.file.files[0]);
+        img.classList.add('itemImg');
         img.sizes = '100px';
         img.width = '100';
         elem.insertAdjacentElement('afterbegin', img);
         this.itemBox.insertAdjacentElement('afterbegin', elem);
-        //  const blob = new Blob([this.file.files[0]], { type: `${this.file.files[0].type}` });
         const form = new FormData();
         const response = await this.api.add({
           text: `${this.file.files[0].name}`,
           time: `${time()}`,
+          type: 'img',
         });
         const data = await response.json();
         elem.setAttribute('nameId', data.id);
-        // form.append('id', data.id);
         form.append('file', this.file.files[0]);
-        await this.api.addFile(form);
-        URL.revokeObjectURL(img.src);
+        await this.api.addFile(form, data.id);
+        img.src = `http://localhost:7070/${data.id}`;
       }
       if (/audio/.test(this.file.files[0].type)) {
         const elem = document.createElement('div');
         elem.innerHTML = `<span class="spanText">${this.file.files[0].name}</span><span class="spanTime">${time()}</span>`;
         elem.classList.add('elemTextNote');
         const audio = document.createElement('audio');
-        audio.src = URL.createObjectURL(this.file.files[0]);
+        audio.classList.add('itemAudio');
         audio.controls = true;
         elem.insertAdjacentElement('afterbegin', audio);
         this.itemBox.insertAdjacentElement('afterbegin', elem);
+        const form = new FormData();
+        const response = await this.api.add({
+          text: `${this.file.files[0].name}`,
+          time: `${time()}`,
+          type: 'audio',
+        });
+        const data = await response.json();
+        elem.setAttribute('nameId', data.id);
+        form.append('file', this.file.files[0]);
+        await this.api.addFile(form, data.id);
+        audio.src = `http://localhost:7070/${data.id}`;
       }
       if (/video/.test(this.file.files[0].type)) {
         const elem = document.createElement('div');
         elem.innerHTML = `<span class="spanText">${this.file.files[0].name}</span><span class="spanTime">${time()}</span>`;
         elem.classList.add('elemTextNote');
         const video = document.createElement('video');
-        video.src = URL.createObjectURL(this.file.files[0]);
+        video.classList.add('itemVideo');
         video.controls = true;
         elem.insertAdjacentElement('afterbegin', video);
         this.itemBox.insertAdjacentElement('afterbegin', elem);
+        const form = new FormData();
+        const response = await this.api.add({
+          text: `${this.file.files[0].name}`,
+          time: `${time()}`,
+          type: 'video',
+        });
+        const data = await response.json();
+        elem.setAttribute('nameId', data.id);
+        form.append('file', this.file.files[0]);
+        await this.api.addFile(form, data.id);
+        video.src = `http://localhost:7070/${data.id}`;
       }
     });
   }

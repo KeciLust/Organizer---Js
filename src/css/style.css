@@ -45,31 +45,39 @@
     font-style: oblique;
     margin-bottom: 0;
 }
-.mainPanel {
+.rendering {
     width: calc(100% - 425px);
     min-height: 87vh;
     max-height: 87vh;
     margin: 10px;
     margin-left: 370px;
     padding: 20px;
-    display: flex;
+    
     border: 3px rgb(136, 170, 241) solid;
     border-radius: 10px;
     flex-direction: column;
+}
+.mainPanel {
+    display: flex;
     justify-content:space-between ;
 }
 .settings {
-    width: calc(100% - 425px);
-    min-height: 87vh;
-    max-height: 87vh;
-    margin: 10px;
-    margin-left: 370px;
-    padding: 20px;
     display: none;
-    border: 3px rgb(136, 170, 241) solid;
-    border-radius: 10px;
-    flex-direction: column;
-    
+}
+.listImgItems{
+    display: none;
+}
+.listAudioItems {
+    display: none;
+}
+.listVideoItems {
+    display: none;
+}
+.listCalendar {
+    display: none;
+}
+.listReminder {
+    display: none;
 }
 .avatarSettings {
     display: flex;

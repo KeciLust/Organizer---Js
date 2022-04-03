@@ -14,18 +14,18 @@
     </div>
     <ul class="controlPanelList" color="black">
       <li class="controlPanelitem controlPickOut mainItem">Заметки</li>
-      <li class="controlPanelitem">Напоминания</li>
-      <li class="controlPanelitem">Календарь</li>
-      <li class="controlPanelitem">Картинки</li>
-      <li class="controlPanelitem">Аудио</li>
-      <li class="controlPanelitem">Видео</li>
+      <li class="controlPanelitem reminder">Напоминания</li>
+      <li class="controlPanelitem calendar">Календарь</li>
+      <li class="controlPanelitem listImg">Картинки</li>
+      <li class="controlPanelitem listAudio">Аудио</li>
+      <li class="controlPanelitem listVideo">Видео</li>
       <li class="controlPanelitem settingsItem">Настройки</li>
     </ul>
   </div>
-  <div class="settings">
-   <div class="avatarSettings">
-    <label for = "inputSettings" class="settingsText">Выберите аватар</label>
-    <input type="file" class="inputSettings" id ='inputSettings' placeholder="Установите аватарку" accept="image/*"></div>
+  <div class="settings rendering">
+  
+   <form class="avatarSettings"> <label for = "inputSettings" class="settingsText">Выберите аватар</label>
+    <input type="file" class="inputSettings" id ='inputSettings' placeholder="Установите аватарку" accept="image/*"></form>
    <div class="theme">
     <span class="settingsText">Выберите тему</span>
     <div class="radioSettings">
@@ -36,7 +36,7 @@
     </div>
    </div>
   </div>
-  <div class="mainPanel panel">
+  <div class="mainPanel panel rendering">
     <div class="fixNote">
       <span class="fixText"></span>
       <button class="fixButton"></button>
@@ -70,6 +70,12 @@
       <button class="textButton">&#9989;</button> 
     </div>
   </div>
+  <div class="listImgItems rendering"></div>
+  <div class="listAudioItems rendering"></div>
+  <div class="listVideoItems rendering"></div>
+  <div class="listReminder rendering"></div>
+  <div class="listCalendar rendering"></div>
+
 </div>
 </body>
 </html>

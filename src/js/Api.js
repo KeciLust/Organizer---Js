@@ -16,11 +16,10 @@ export default class Api {
     });
   }
 
-  addFile(form) {
-    return fetch(`${this.url}/load`, {
+  addFile(form, id) {
+    return fetch(`${this.url}/${id}`, {
       body: form,
       method: 'POST',
-      // headers: { 'Content-Type': 'multipart/*' },
     });
   }
 
