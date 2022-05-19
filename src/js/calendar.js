@@ -12,7 +12,7 @@ export default function calendar() {
   for (let i = dayFirst - 1; i < dayLast + dayFirst - 1; i += 1) {
     num += 1;
     day[i].textContent = num;
-    if(num === date.getDate()){
+    if (num === date.getDate()) {
       day[i].classList.add('dayNow');
     }
   }
