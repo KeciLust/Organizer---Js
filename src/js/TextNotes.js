@@ -25,7 +25,7 @@ export default class Notes {
     const data = await response.json();
     if (data.length > 0) {
       for (let i = 0; i < data.length; i += 1) {
-        if(data[i].type === 'avatar'){
+        if (data[i].type === 'avatar') {
           document.querySelector('.avatar').src = `http://localhost:7070/${data[i].link}`;
           return;
         }

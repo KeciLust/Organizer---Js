@@ -90,6 +90,12 @@ export default class Control {
           document.querySelector('.listVideoItems').insertAdjacentElement('afterbegin', el.cloneNode(true));
         });
       } else if (e.target.classList.contains('calendar')) {
+        const item = document.querySelector('.panel');
+        item.classList.remove('panel');
+        item.style.display = 'none';
+        document.querySelector('.listCalendar').classList.add('panel');
+        document.querySelector('.listCalendar').style.display = 'flex';
+
         calendar();
       } else if (e.target.classList.contains('reminder')) {
         reminder();

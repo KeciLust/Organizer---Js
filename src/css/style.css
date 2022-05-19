@@ -349,3 +349,34 @@
     color:blueviolet;
   
 }
+.tableCalendar {
+    font-size: 40px;
+}
+.titleCalendar {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 30px;
+    margin-top: 30px;
+    font-size: 30px;
+}
+.mouthCalendar {
+    
+}
+.prevMouth {
+    background-color: white;
+    border: 0;
+}
+.nextMouth {
+    background-color: white;
+    border: 0;
+}
+.day {
+    font-size: 30px;
+    text-align: center;
+}
+.weekEnd {
+    background-color: rgb(250, 200, 193);
+}
+.dayNow {
+    background-color: rgb(177, 236, 238);
+}
