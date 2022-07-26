@@ -121,6 +121,7 @@
   }
 .searchPanel {
     width: 100%;
+    display: flex;
 }
 .search {
     width: 85%;
