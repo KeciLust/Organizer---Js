@@ -3,7 +3,7 @@
 
 Диплом
 
-https://kecilust.github.io/DIPLOM__AHJ-19/
+https://kecilust.github.io/Organizer---Js/
 
 
     ---Возможности---
