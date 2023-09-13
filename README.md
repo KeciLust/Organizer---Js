@@ -1,4 +1,4 @@
-[![Build status](https://ci.appveyor.com/api/projects/status/grioe9977k6h7hox?svg=true)](https://ci.appveyor.com/project/KeciLust/diplom-ahj-19)
+[![Build status](https://ci.appveyor.com/api/projects/status/grioe9977k6h7hox?svg=true)](https://ci.appveyor.com/project/KeciLust/Organizer---Js)
 
 
 Диплом
